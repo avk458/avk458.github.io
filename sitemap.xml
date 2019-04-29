@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://avk458.github.io/posts/java%E9%94%81%E4%BA%8B/</loc>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://avk458.github.io/posts/the-figure-shortcode/</loc>
     <lastmod>2018-12-24T12:29:41+08:00</lastmod>
   </url>
@@ -79,14 +84,26 @@
   </url>
   
   <url>
+    <loc>https://avk458.github.io/tags/java/</loc>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://avk458.github.io/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://avk458.github.io/posts/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://avk458.github.io/tags/synchronized/</loc>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -111,6 +128,18 @@
   <url>
     <loc>https://avk458.github.io/tags/typography/</loc>
     <lastmod>2018-09-29T11:36:33+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://avk458.github.io/tags/%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://avk458.github.io/tags/%E9%94%81%E5%8D%87%E7%BA%A7/</loc>
+    <lastmod>2019-02-22T02:28:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
