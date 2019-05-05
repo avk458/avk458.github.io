@@ -139,7 +139,7 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 
 <p>Java为我们提供了种类繁多的&rdquo;锁&rdquo;以应对不同的使用场景，掌握了每种锁的特性可以使我们的程序在保证线程安全的情况下还拥有非常出色的效率。</p>
 
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2c1ukp810j326u0nwagf.jpg" alt="Java锁分类" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/Java%E9%94%81%E5%88%86%E7%B1%BB.png" alt="Java锁分类" /></p>
 
 <h3 id="1-乐观锁和悲观锁">1. 乐观锁和悲观锁<a href="#1-乐观锁和悲观锁" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -151,7 +151,7 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 
 <p>Java中乐观锁是通过无锁编程来实现的，一半采用的都是CAS算法，例如原子类中的<code>incrementAndGet()</code>方法。</p>
 
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2c1umhrvmj30pq07uq3o.jpg" alt="incrementAndGet" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/incrementAndGet.png" alt="incrementAndGet" /></p>
 
 <p>CAS全称 Compare And Swap（比较与交换），是一种无锁算法。在不使用锁（没有线程被阻塞）的情况下实现多线程之间的变量同步。java.util.concurrent包中的原子类就是通过CAS来实现了乐观锁。</p>
 
@@ -182,7 +182,7 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 
 <p>自旋锁的实现原理同样也是CAS，AtomicInteger中调用unsafe进行自增操作的源码中的do-while循环就是一个自旋操作，如果修改数值失败则通过循环来执行自旋，直至修改成功。</p>
 
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g2c1ulikyyj30qu07edgv.jpg" alt="cas自旋" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/cas%E8%87%AA%E6%97%8B.png" alt="cas自旋" /></p>
 
 <h3 id="3-synchronized-锁升级">3. synchronized 锁升级<a href="#3-synchronized-锁升级" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -259,13 +259,13 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 <li>公平锁</li>
 </ul>
 
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2c1undtrvj30om0jwjtw.jpg" alt="公平锁" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E5%85%AC%E5%B9%B3%E9%94%81.png" alt="公平锁" /></p>
 
 <ul>
 <li>非公平锁</li>
 </ul>
 
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2c1ufnkglj30r00j276x.jpg" alt="非公平锁" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81.png" alt="非公平锁" /></p>
 
 <p>通过上图中的源代码对比，我们可以明显的看出公平锁与非公平锁的lock()方法唯一的区别就在于公平锁在获取同步状态时多了一个限制条件：<code>hasQueuedPredecessors()</code>。公平锁就是通过同步队列来实现多个线程按照申请锁的顺序来获取锁，从而实现公平的特性。非公平锁加锁时不考虑排队等待问题，直接尝试获取锁，所以存在后申请却先获得锁的情况。</p>
 
@@ -277,7 +277,7 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 
 <p>首先ReentrantLock和NonReentrantLock都继承父类AQS，其父类AQS中维护了一个同步状态status来计数重入次数，status初始值为0。</p>
 
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2c1umxzy6j30cm04874f.jpg" alt="reentrantLock status" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/reentrantLock%20status.png" alt="reentrantLock status" /></p>
 
 <p>当线程尝试获取锁时，可重入锁先尝试获取并更新status值，如果status == 0表示没有其他线程在执行同步代码，则把status置为1，当前线程开始执行。如果status != 0，则判断当前线程是否是获取到这个锁的线程，如果是的话执行status+1，且当前线程可以再次获取锁。而非可重入锁是直接去获取并尝试更新当前status的值，如果status != 0的话会导致其获取锁失败，当前线程阻塞。</p>
 
@@ -287,15 +287,15 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 <li>可重入锁</li>
 </ul>
 
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2c1uhge14j30tu0fidi8.jpg" alt="重入锁判断status" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%87%8D%E5%85%A5%E9%94%81%E5%88%A4%E6%96%ADstatus.png" alt="重入锁判断status" /></p>
 
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2c1um1rz2j30qs0akgnm.jpg" alt="重入锁释放" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%87%8D%E5%85%A5%E9%94%81%E9%87%8A%E6%94%BE.png" alt="重入锁释放" /></p>
 
 <ul>
 <li>非可重入锁</li>
 </ul>
 
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g2c1ugchiwj30ro0c0dhm.jpg" alt="非可重入锁尝试获取锁" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%9D%9E%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%B0%9D%E8%AF%95%E8%8E%B7%E5%8F%96%E9%94%81.png" alt="非可重入锁尝试获取锁" /></p>
 
 <h3 id="6-共享锁和排他锁">6. 共享锁和排他锁<a href="#6-共享锁和排他锁" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -307,7 +307,7 @@ synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操
 
 <p>共享锁和排他锁也是通过AQS来实现的，通过实现不同的方法，来实现独享或者共享。</p>
 
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2c1ujtxy0j30vq0pite0.jpg" alt="读写锁" /></p>
+<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.png" alt="读写锁" /></p>
 
 <p>我们看到ReentrantReadWriteLock有两把锁：ReadLock和WriteLock，由词知意，一个读锁一个写锁，合称“读写锁”。再进一步观察可以发现ReadLock和WriteLock是靠内部类Sync实现的锁。Sync是AQS的一个子类，这种结构在CountDownLatch、ReentrantLock、Semaphore里面也都存在。</p>
 
