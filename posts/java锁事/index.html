@@ -93,7 +93,7 @@ CAS算法涉及到三个操作数：
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title>Java“锁”事</title>
-	<link rel="stylesheet" href="https://avk458.github.io/css/style.min.278b9c3bdc083d1b9012627cf76538692336f6ea27add3755143eb4047e10d1d.css" integrity="sha256-J4ucO9wIPRuQEmJ892U4aSM29uonrdN1UUPrQEfhDR0=">
+	<link rel="stylesheet" href="https://avk458.github.io/css/style.min.d87af93d565d46edb02f4d9745983bb14340f7acc7dafa5b6bed66be6297e133.css" integrity="sha256-2Hr5PVZdRu2wL02XRZg7sUNA96zH2vpba+1mvmKX4TM=" crossorigin="anonymous">
 	
 </head>
 
@@ -106,12 +106,14 @@ CAS算法涉及到三个操作数：
 					<a href="https://avk458.github.io">Kano&#39;s spot</a>
 				</div>
 				<nav class="site-nav hide-in-mobile">
-					<a href="https://avk458.github.io/posts/">Posts</a>
-					<a href="https://avk458.github.io/about-hugo/">About</a>
+					
+				<a href="https://avk458.github.io/posts/">Posts</a>
+				<a href="https://avk458.github.io/about-hugo/">About</a>
+
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -136,7 +138,7 @@ CAS算法涉及到三个操作数：
 
 <p>Java为我们提供了种类繁多的&rdquo;锁&rdquo;以应对不同的使用场景，掌握了每种锁的特性可以使我们的程序在保证线程安全的情况下还拥有非常出色的效率。</p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/Java%E9%94%81%E5%88%86%E7%B1%BB.png" alt="Java锁分类" /></p>
+<p><img src="https://i.loli.net/2020/03/06/MtfJroW8Gxqz9Sw.png" alt="Java锁分类" /></p>
 
 <h3 id="1-乐观锁和悲观锁">1. 乐观锁和悲观锁<a href="#1-乐观锁和悲观锁" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -148,7 +150,7 @@ CAS算法涉及到三个操作数：
 
 <p>Java中乐观锁是通过无锁编程来实现的，一半采用的都是CAS算法，例如原子类中的<code>incrementAndGet()</code>方法。</p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/incrementAndGet.png" alt="incrementAndGet" /></p>
+<p><img src="https://i.loli.net/2020/03/06/bgxjidw7rtaSWN6.png" alt="incrementAndGet" /></p>
 
 <p>CAS全称 Compare And Swap（比较与交换），是一种无锁算法。在不使用锁（没有线程被阻塞）的情况下实现多线程之间的变量同步。java.util.concurrent包中的原子类就是通过CAS来实现了乐观锁。</p>
 
@@ -179,7 +181,7 @@ CAS算法涉及到三个操作数：
 
 <p>自旋锁的实现原理同样也是CAS，AtomicInteger中调用unsafe进行自增操作的源码中的do-while循环就是一个自旋操作，如果修改数值失败则通过循环来执行自旋，直至修改成功。</p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/cas%E8%87%AA%E6%97%8B.png" alt="cas自旋" /></p>
+<p><img src="https://i.loli.net/2020/03/06/bvEIqUJPKB8ZW54.png" alt="cas自旋" /></p>
 
 <h3 id="3-synchronized-锁升级">3. synchronized 锁升级<a href="#3-synchronized-锁升级" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -187,7 +189,7 @@ CAS算法涉及到三个操作数：
 
 <p>先说说synchronize的能实现线程同步原理中的两个概念：<strong>对象头</strong> 和 <strong>Monitor</strong></p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/Java%E5%AF%B9%E8%B1%A1%E5%A4%B4.jpg" alt="Java对象头" /></p>
+<p><img src="https://i.loli.net/2020/03/06/jeiqgmJYE3CQ29b.jpg" alt="Java对象头" /></p>
 
 <ul>
 <li><p><strong>对象头</strong></p>
@@ -252,13 +254,13 @@ CAS算法涉及到三个操作数：
 <li>公平锁</li>
 </ul>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E5%85%AC%E5%B9%B3%E9%94%81.png" alt="公平锁" /></p>
+<p><img src="https://i.loli.net/2020/03/06/9uFJOZtnEmQlyrI.png" alt="公平锁" /></p>
 
 <ul>
 <li>非公平锁</li>
 </ul>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81.png" alt="非公平锁" /></p>
+<p><img src="https://i.loli.net/2020/03/06/QhNBkwEj6PneayZ.png" alt="非公平锁" /></p>
 
 <p>通过上图中的源代码对比，我们可以明显的看出公平锁与非公平锁的lock()方法唯一的区别就在于公平锁在获取同步状态时多了一个限制条件：<code>hasQueuedPredecessors()</code>。公平锁就是通过同步队列来实现多个线程按照申请锁的顺序来获取锁，从而实现公平的特性。非公平锁加锁时不考虑排队等待问题，直接尝试获取锁，所以存在后申请却先获得锁的情况。</p>
 
@@ -270,7 +272,7 @@ CAS算法涉及到三个操作数：
 
 <p>首先ReentrantLock和NonReentrantLock都继承父类AQS，其父类AQS中维护了一个同步状态status来计数重入次数，status初始值为0。</p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/reentrantLock%20status.png" alt="reentrantLock status" /></p>
+<p><img src="https://i.loli.net/2020/03/06/r4RIe1gyzAc7JFn.png" alt="reentrantLock status" /></p>
 
 <p>当线程尝试获取锁时，可重入锁先尝试获取并更新status值，如果status == 0表示没有其他线程在执行同步代码，则把status置为1，当前线程开始执行。如果status != 0，则判断当前线程是否是获取到这个锁的线程，如果是的话执行status+1，且当前线程可以再次获取锁。而非可重入锁是直接去获取并尝试更新当前status的值，如果status != 0的话会导致其获取锁失败，当前线程阻塞。</p>
 
@@ -280,15 +282,15 @@ CAS算法涉及到三个操作数：
 <li>可重入锁</li>
 </ul>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%87%8D%E5%85%A5%E9%94%81%E5%88%A4%E6%96%ADstatus.png" alt="重入锁判断status" /></p>
+<p><img src="https://i.loli.net/2020/03/06/yREdIOz3mqV4DgJ.png" alt="重入锁判断status" /></p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%87%8D%E5%85%A5%E9%94%81%E9%87%8A%E6%94%BE.png" alt="重入锁释放" /></p>
+<p><img src="https://i.loli.net/2020/03/06/nYm4cf2JK7AUGwT.png" alt="重入锁释放" /></p>
 
 <ul>
 <li>非可重入锁</li>
 </ul>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E9%9D%9E%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%B0%9D%E8%AF%95%E8%8E%B7%E5%8F%96%E9%94%81.png" alt="非可重入锁尝试获取锁" /></p>
+<p><img src="https://i.loli.net/2020/03/06/VCO3DTBuSQvFGKX.png" alt="非可重入锁尝试获取锁" /></p>
 
 <h3 id="6-共享锁和排他锁">6. 共享锁和排他锁<a href="#6-共享锁和排他锁" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
@@ -300,9 +302,7 @@ CAS算法涉及到三个操作数：
 
 <p>共享锁和排他锁也是通过AQS来实现的，通过实现不同的方法，来实现独享或者共享。</p>
 
-<p><img src="http://pq7bqwaxm.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.png" alt="读写锁" /></p>
-
-<p>我们看到ReentrantReadWriteLock有两把锁：ReadLock和WriteLock，由词知意，一个读锁一个写锁，合称“读写锁”。再进一步观察可以发现ReadLock和WriteLock是靠内部类Sync实现的锁。Sync是AQS的一个子类，这种结构在CountDownLatch、ReentrantLock、Semaphore里面也都存在。</p>
+<p><img src="https://i.loli.net/2020/03/06/bDVJFoRhy9CcHQA.png" alt="读写锁" />我们看到ReentrantReadWriteLock有两把锁：ReadLock和WriteLock，由词知意，一个读锁一个写锁，合称“读写锁”。再进一步观察可以发现ReadLock和WriteLock是靠内部类Sync实现的锁。Sync是AQS的一个子类，这种结构在CountDownLatch、ReentrantLock、Semaphore里面也都存在。</p>
 
 <p>在ReentrantReadWriteLock里面，读锁和写锁的锁主体都是Sync，但读锁和写锁的加锁方式不一样。读锁是共享锁，写锁是独享锁。读锁的共享锁可保证并发读非常高效，而读写、写读、写写的过程互斥，因为读锁和写锁是分离的。所以ReentrantReadWriteLock的并发性相比一般的互斥锁有了很大提升。</p>
 
@@ -358,14 +358,16 @@ CAS算法涉及到三个操作数：
 	</main>
 
 	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2019 <a href="https://avk458.github.io">Kano</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>&copy; 2020 <a href="https://avk458.github.io">Kano</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
 		<p>
 			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://avk458.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
 		</p>
 	</footer>
 
 
-	<script src="https://avk458.github.io/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+	<script src="https://avk458.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
